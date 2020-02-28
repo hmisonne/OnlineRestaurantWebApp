@@ -1,0 +1,149 @@
+{% extends "orders/base.html" %}
+
+{% block title %}
+ Menu
+{% endblock %}
+
+{% block body %}
+<!-- <h1>Hello {{ user }}</h1> -->
+
+<!-- <div>Currently logged in as: {{ user.username }}</div> -->
+
+
+
+
+<div class="container">
+	<h1>Menu</h1>
+	<hr>
+	{% for category in categories %}
+	<h2> {{ category}} </h2>
+	<div class="row">
+		{% for item in items %}
+		{% if item.category == category %}
+	    <div class="col-sm-4">
+			<div class="form-group">
+				<h5> 
+					
+					<label for="exampleFormControlSelect1">
+						<input name="item_id" value="{{item.id}}" type="hidden"/>
+						<div> {{ item }}</div>
+					</label>			    	
+					
+				</h5>
+
+	    			<!-- Button trigger modal -->
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter{{item.id}}">
+				  Add to Cart
+				</button>
+
+			<!-- Modal -->
+				<!-- Modal -->
+			<div class="modal fade" id="exampleModalCenter{{item.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+			  <div class="modal-dialog modal-dialog-centered" role="document">
+			    <div class="modal-content">
+			    	<form action="{% url 'cart' %}" method="post">	
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="exampleModalLongTitle">{{ item.category.name }}</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+			        
+							{% csrf_token %}
+
+						<div class="form-group">
+				    		<label for="exampleFormControlSelect1">
+				    			<input name="item_id" value="{{item.id}}" type="hidden"/>
+				    			<div> {{ item }}</div>
+				    		</label>
+						    	
+			       
+			      			
+				    		{% if category.custom_size == True %}
+			      			<label for="exampleFormControlSelect1">Size:</label>
+						    <select class="form-control" id="exampleFormControlSelect1" name="size_id" >
+						    	{% for size in sizes %}
+						     {% if size.name == "Large" %}
+							  <option value="{{size.id}}">{{ size.name }} +${{ item.base_price_id.large_supp }} </option>
+							  {% else %}
+							  <option value="{{size.id}}">{{ size.name }} </option>
+
+							  {% endif %}
+						      	{% endfor %}
+						      </select>
+						      {% endif %}
+					 	</div>
+					 	{% if category.custom_topping == True %}
+					 	{% for topping in toppings %}
+									<div class="checkbox">
+									  <label><input type="checkbox" name="topping_id" value="{{topping.id}}">{{ topping }}</label>
+									</div>
+						{% endfor %}
+						{% endif %}
+
+						{% if category.custom_extra == True %}
+								{% for extra in extras %}
+									<div class="checkbox">
+									  <label><input type="checkbox" name="extra_id" value="{{extra.id}}">{{ extra }} +$0.50</label>
+									</div>
+								{% endfor %}
+						{% endif %}
+
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			        <button class="btn btn-primary" type="submit">Add to cart</button>
+						
+			      </div>
+			     </form>
+			    </div>
+			  </div>
+			</div>
+
+<!-- end of modal -->
+
+
+
+
+		</div>
+		<!-- end of regular pizza -->
+		</div>
+
+
+
+
+		
+{% endif %}
+{% endfor %}
+<!-- end of row pizza -->
+	</div>
+<hr>	
+
+
+{% endfor %}
+
+	<!-- end of container -->
+</div>
+
+
+
+
+
+		
+
+
+
+
+
+		
+
+
+<!-- end of row subs -->
+	</div>
+
+
+{% endblock %}
+
+
+

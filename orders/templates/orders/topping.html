@@ -1,0 +1,19 @@
+{% extends "orders/base.html" %}
+
+{% block title %}
+ 
+{% endblock %}
+
+{% block body %}
+<h1>Toppings</h1>
+
+{% for topping in toppings %}
+
+<li> {{ topping }} 
+</li>
+
+{% endfor %}
+
+<a href="{% url 'cart' %}">Back to cart</a>
+
+{% endblock %}

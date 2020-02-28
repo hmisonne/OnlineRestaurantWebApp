@@ -1,0 +1,19 @@
+{% extends "orders/base.html" %}
+
+{% block title %}
+ 
+{% endblock %}
+
+{% block body %}
+<h1>Signup</h1>
+
+ <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+<button type="submit">Sign up</button>
+    </form>
+
+
+    If you already have an account <a href="{% url 'index' %}" target="blank"><strong>login</strong></a> instead.
+
+{% endblock %}

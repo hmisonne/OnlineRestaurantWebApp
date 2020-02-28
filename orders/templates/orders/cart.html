@@ -1,0 +1,70 @@
+{% extends "orders/base.html" %}
+{% load humanize %}
+{% block title %}
+ 
+{% endblock %}
+
+{% block body %}
+<h1>Cart</h1>
+
+{% if cart_items %}
+		<form action="{% url 'order' %}" method="post">
+{% csrf_token %}
+  <div class="form-group">
+  	{% for item in cart_items %}
+
+<li> <input type="hidden" value="{{item.id}}" name="cart_id"> {{ item }}
+	<small><a href="{% url 'removefromcart' item.id %}"> Remove </a></small>
+
+	<!-- <a href="{% url 'topping' item.id %}">view topping</a> -->
+
+</li>
+
+
+
+{% endfor %}
+   <hr>
+
+<h4>Total Price : ${{total_price|floatformat:2|intcomma}}</h4>
+  </div>
+  <button type="submit" class="btn btn-primary">Place order</button>
+</form>
+{% else %}
+
+<h3>Your cart is currently empty</h3>
+
+<form action="{% url 'index'%}">
+    <button class="btn btn-primary" type="submit">Continue Shopping</button>
+</form>
+
+
+{% endif %}
+<hr>
+
+{% if cart_items_ordered %}
+<h4>Previous Orders</h4>
+{% for item in cart_items_ordered %}
+
+<li> {{ item }}
+	
+
+</li>
+
+
+
+{% endfor %}
+
+{% endif %}
+
+
+{% endblock %}
+
+<!-- <a href="{% url 'topping' cart.id %}">toppings</a> -->
+<!-- <a href="{% url 'removefromcart' item.id %}">Delete</a> -->
+
+	
+		<!-- {% if item.menu_id.topping_qty %} -->
+
+	<!-- <a href="{% url 'topping' item.id %}">view topping</a> -->
+		<!-- {% endif %} -->
+
