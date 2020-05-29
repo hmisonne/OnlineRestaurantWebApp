@@ -10,6 +10,8 @@ Once an order is complete, user can decide to place an order. After submission, 
 current cart and the admin will see a new order on the interface that he/she can mark as completed.
 The site administrator can add or update category and name of product if needed using the admin interface.
 
+![PizzaRestaurant Demo](demo/demo.gif)
+
 ## Install
 
 Activate virtual environment:
