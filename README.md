@@ -1,4 +1,4 @@
-# Restaurant Web App using Django frameword
+# Pinocchio's
 
 Web Programming with Python and JavaScript
 
