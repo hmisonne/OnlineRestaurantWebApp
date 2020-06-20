@@ -4,11 +4,14 @@ Web Programming with Python and JavaScript
 
 This is a web application for a Pizza Restaurant website using Django.
 
-On this web app, users can register, login, browse the menu and items to their cart. 
-If appropriate, they can add topping and extras.
-Once an order is complete, user can decide to place an order. After submission, the items will be remove from the
-current cart and the admin will see a new order on the interface that he/she can mark as completed.
-The site administrator can add or update category and name of product if needed using the admin interface.
+On this web app, users can :
+- Register, login, browse the menu and items to their cart. 
+- If appropriate, they can add topping and extras.
+- Once an order is complete, user can decide to place an order. 
+
+After submission, the items will be remove from the current cart and the site administrator can:
+- See a new order on the admin interface that he/she can mark as completed.
+- Add or update category and name of product if needed.
 
 ![PizzaRestaurant Demo](demo/demo.gif)
 
