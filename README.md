@@ -1,8 +1,8 @@
-# Pinocchio's
+# Online Restaurant WebApp: Pinocchio's
 
 Web Programming with Python and JavaScript
 
-This is a web application for a Pizza Restaurant website using Django.
+This is a web application for a Pizza Restaurant website using Django and SQLite.
 
 On this web app, users can :
 - Register, login, browse the menu and items to their cart. 
@@ -15,30 +15,6 @@ After submission, the items will be remove from the current cart and the site ad
 
 ![PizzaRestaurant Demo](demo/demo.gif)
 
-## Install
-
-Activate virtual environment:
-
-`$ env\Scripts\activate`
-
-Check if Django is already installed:
-
-`$ python -m django --version`
-
-If not: https://docs.djangoproject.com/en/3.0/topics/install/
-
-`$ python manage.py runserver`
-
-Copy paste the URL link to your web browser
-
-`Starting development server at http://127.0.0.1:8000/`
-
-To go to the admin interface, add /admin/ to the root URL: http://127.0.0.1:8000/admin/
-
-To create a superuser, follow this tutorial: https://docs.djangoproject.com/en/1.8/intro/tutorial02/
-
-To visualize this web app, check out this video https://www.youtube.com/watch?v=nhwRe9PW50k&t=48s
-
 ## Django models
 For this project I created 8 models:
 * Category : To differentiate items and allow the customization of topping, size and extra.
@@ -48,3 +24,28 @@ For this project I created 8 models:
 * Item_List : Which list the name of article and associate it with the price list
 * Cart_List : To allow users to add and remove items to their cart
 * Order : To see the orders placed
+
+
+## Prerequisites
+
+- Python
+- Django, https://docs.djangoproject.com/en/3.0/topics/install/
+
+## How to run this application
+
+To rum this application on your laptop, run this command from your terminal:
+
+`$ python manage.py runserver`
+or `$ python3 manage.py runserver`
+
+Copy paste the URL link to your web browser
+
+`Starting development server at http://127.0.0.1:8000/`
+
+## How to run the admin interface
+
+While the application is running on your local computer, go tho this url: http://127.0.0.1:8000/admin/
+
+To create a superuser, follow this tutorial: https://docs.djangoproject.com/en/1.8/intro/tutorial02/
+
+To get more information about this web app, check out this video https://www.youtube.com/watch?v=nhwRe9PW50k&t=48s
