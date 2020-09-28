@@ -51,7 +51,7 @@ def signup_view(request):
 			user = form.save()
 			username = form.cleaned_data.get('username')
 			login(request, user)
-			return redirect('index')
+			return HttpResponseRedirect(reverse("index"))
 		else:
 			for msg in form.error_messages:
 				print(form.error_messages[msg])
